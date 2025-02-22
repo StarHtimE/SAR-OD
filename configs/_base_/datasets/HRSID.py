@@ -17,7 +17,7 @@ data_root = 'data/HRSID/'
 #     }))
 
 batch_size = 4
-num_workers = 8
+num_workers = 4
 backend_args = None
 
 train_pipeline = [

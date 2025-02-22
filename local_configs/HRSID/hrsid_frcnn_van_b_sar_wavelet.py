@@ -18,7 +18,7 @@ model = dict(
             drop_path_rate=0.1,
             depths=[3, 3, 12, 3],
             norm_cfg=dict(type='SyncBN', requires_grad=True)),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/siton-gpfs-archive/yuxuanli/mmpretrain/work_dirs/van_b_sar/epoch_100.pth'),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/workspace/SAR-OD/checkpoints/van_b_sar_wavelet_epoch_100.pth'),
     ), 
     neck=dict(
         type='FPN',
