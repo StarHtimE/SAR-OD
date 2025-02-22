@@ -7,18 +7,21 @@ _base_ = [
 num_class = 1
 model = dict( 
     backbone=dict(
-        _delete_ = True,
+        # _delete_ = True,
         type='MSFA',
-        use_sar=True, 
-        # input_size = (512,512), 
+        use_sar=True,
         backbone=dict(
-            type='VAN',
-            embed_dims=[64, 128, 320, 512],
-            drop_rate=0.1,
-            drop_path_rate=0.1,
-            depths=[3, 3, 12, 3],
-            norm_cfg=dict(type='SyncBN', requires_grad=True)),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/siton-gpfs-archive/yuxuanli/mmpretrain/work_dirs/van_b_sar/epoch_100.pth'),
+            type='ResNet',
+            depth=50,
+            num_stages=4,
+            out_indices=(1, 2, 3),
+            frozen_stages=1,
+            norm_cfg=dict(type='BN', requires_grad=True),
+            norm_eval=True,
+            style='pytorch',
+            init_cfg=None
+        ),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/workspace/SAR-OD/checkpoints/r50_sar_epoch_100.pth'),
     ), 
     neck=dict(
         type='FPN',
