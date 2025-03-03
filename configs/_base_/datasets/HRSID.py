@@ -16,7 +16,7 @@ data_root = 'data/HRSID/'
 #         'data/': 's3://openmmlab/datasets/detection/'
 #     }))
 
-batch_size = 4
+batch_size = 8
 num_workers = 4
 backend_args = None
 

@@ -1,7 +1,7 @@
 _base_ = [
-    '/workspace/SAR-OD/configs/_base_/models/retinanet_r50_fpn.py', 
-    '/workspace/SAR-OD/configs/_base_/datasets/HRSID.py',
-    '/workspace/SAR-OD/configs/_base_/schedules/schedule_1x.py', '/workspace/SAR-OD/configs/_base_/default_runtime.py'
+    '/root/workspace/SAR-OD/configs/_base_/models/retinanet_r50_fpn.py', 
+    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py',
+    '/root/workspace/SAR-OD/configs/_base_/schedules/schedule_1x.py', '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
 ]# model settings
 
 num_classes = 1
@@ -23,7 +23,7 @@ model = dict(
             style='pytorch',
             init_cfg=None
         ),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/workspace/SAR-OD/checkpoints/r50_sar_epoch_100.pth'),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/workspace/SAR-OD/checkpoints/r50_sar_epoch_100.pth'),
     ),
     
     bbox_head=dict(
