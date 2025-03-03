@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'SAR_Objectness_Dataset' 
-data_root = 'data/HRSID/'
+data_root = '/root/autodl-tmp/data/HRSID/'
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
