@@ -14,7 +14,7 @@ class SAR_Objectness_Dataset(SAR_Det_Finegrained_Dataset):
     """Dataset for COCO."""
 
     METAINFO = {
-        'classes': (),
+        'classes': ('ship',),
         # palette is a list of color tuples, which is used for visualization.
         'palette':
         [ (0, 182, 0)]

@@ -1,4 +1,7 @@
 # dataset settings
+custom_imports = dict(
+    imports=['msfa.datasets.SAR_objectness'],  
+    allow_failed_imports=False)
 dataset_type = 'SAR_Objectness_Dataset' 
 data_root = '/root/autodl-tmp/data/HRSID/'
 
@@ -16,7 +19,7 @@ data_root = '/root/autodl-tmp/data/HRSID/'
 #         'data/': 's3://openmmlab/datasets/detection/'
 #     }))
 
-batch_size = 8
+batch_size = 1
 num_workers = 4
 backend_args = None
 
