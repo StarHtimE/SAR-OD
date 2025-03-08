@@ -26,7 +26,7 @@ model = dict(
     ),
     neck=dict(
         type='ChannelMapper',
-        in_channels=[96, 192, 384],
+        in_channels=[192, 384, 768],
         kernel_size=1,
         out_channels=256,
         act_cfg=None,
@@ -35,5 +35,5 @@ model = dict(
 )
 
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=6,
     num_workers=4,)
