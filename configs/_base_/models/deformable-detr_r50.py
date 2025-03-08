@@ -1,5 +1,5 @@
 _base_ = [
-    '/workspace/SARDet_100K/MSFA/configs/_base_/datasets/HRSID.py', '/workspace/SARDet_100K/MSFA/configs/_base_/default_runtime.py'
+    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py', '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
 ]
 model = dict(
     type='DeformableDETR',
