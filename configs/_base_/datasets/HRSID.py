@@ -79,7 +79,7 @@ val_evaluator = dict(
 
 
 test_dataloader = dict(
-    batch_size=batch_size,
+    batch_size=1,
     num_workers=num_workers,
     persistent_workers=True,
     drop_last=False,
