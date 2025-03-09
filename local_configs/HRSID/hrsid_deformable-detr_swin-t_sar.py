@@ -26,10 +26,14 @@ model = dict(
     ),
     neck=dict(
         type='ChannelMapper',
-        in_channels=[96, 192, 384],
+        in_channels=[192, 384, 768],
         kernel_size=1,
         out_channels=256,
         act_cfg=None,
         norm_cfg=dict(type='GN', num_groups=32),
         num_outs=4),
 )
+
+train_dataloader = dict(
+    batch_size=6,
+    num_workers=4,)

@@ -1,6 +1,8 @@
 _base_ = [
-    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py', '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
+    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py',
+    '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
 ]
+num_classes = 1
 model = dict(
     type='DeformableDETR',
     num_queries=300,
@@ -15,17 +17,17 @@ model = dict(
         pad_size_divisor=1),
     backbone=dict(
         type='ResNet',
-        depth=50,
+        depth=101,
         num_stages=4,
         out_indices=(1, 2, 3),
         frozen_stages=1,
         norm_cfg=dict(type='BN', requires_grad=False),
         norm_eval=True,
         style='pytorch',
-        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet101')),
     neck=dict(
         type='ChannelMapper',
-        in_channels=[512, 1024, 2048],
+        in_channels=[128, 256, 512],
         kernel_size=1,
         out_channels=256,
         act_cfg=None,
@@ -57,7 +59,7 @@ model = dict(
     positional_encoding=dict(num_feats=128, normalize=True, offset=-0.5),
     bbox_head=dict(
         type='DeformableDETRHead',
-        num_classes=1,
+        num_classes=num_classes,
         sync_cls_avg_factor=True,
         loss_cls=dict(
             type='FocalLoss',
