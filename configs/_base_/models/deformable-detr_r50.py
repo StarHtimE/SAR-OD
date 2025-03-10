@@ -1,6 +1,4 @@
-_base_ = [
-    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py', '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
-]
+# model settings
 model = dict(
     type='DeformableDETR',
     num_queries=300,
