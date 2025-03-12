@@ -1,4 +1,4 @@
-_base_ = 'hrsid_deformable-detr.py'
+_base_ = 'E:\Ziheng_projects\SAR-OD\local_configs\HRSID\hrsid_deformable-detr_r50_sar.py'
 
 model = dict(
     backbone=dict(
