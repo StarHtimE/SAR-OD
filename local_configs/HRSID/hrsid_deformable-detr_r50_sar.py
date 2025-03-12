@@ -1,7 +1,8 @@
 _base_ = [
-    '/root/workspace/SAR-OD/configs/_base_/datasets/HRSID.py',
-    '/root/workspace/SAR-OD/configs/_base_/default_runtime.py'
+    '../../configs/_base_/datasets/HRSID.py',
+    '../../configs/_base_/default_runtime.py'
 ]
+
 num_classes = 1
 model = dict(
     type='DeformableDETR',
@@ -30,7 +31,7 @@ model = dict(
             style='pytorch',
             init_cfg=None
         ),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/workspace/SAR-OD/checkpoints/r50_sar_epoch_100.pth'),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='E:/Ziheng_projects/SAR-OD/checkpoints/r50_sar_epoch_100.pth'),
     ), 
     neck=dict(
         type='ChannelMapper',
