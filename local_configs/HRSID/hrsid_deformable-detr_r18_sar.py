@@ -2,7 +2,7 @@ _base_ = 'hrsid_deformable-detr_r50_sar.py'
 
 model = dict(
    backbone=dict(
-        # _delete_ = True,
+        _delete_ = True,
         type='MSFA',
         use_sar=True,
         backbone=dict(
@@ -14,9 +14,8 @@ model = dict(
             norm_cfg=dict(type='BN', requires_grad=True),
             norm_eval=True,
             style='pytorch',
-            init_cfg=None
+            init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet18'),
         ),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='E:/Ziheng_projects/SAR-OD/checkpoints/r18.pth'),
     ), 
     neck=dict(
         type='ChannelMapper',
