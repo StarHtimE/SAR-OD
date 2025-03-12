@@ -31,8 +31,8 @@ data_root = 'D:/DataSets/HRSID/'
 #         'data/': 's3://openmmlab/datasets/detection/'
 #     }))
 
-batch_size = 1
-num_workers = 2
+batch_size = 4
+num_workers = 4
 backend_args = None
 
 train_pipeline = [
