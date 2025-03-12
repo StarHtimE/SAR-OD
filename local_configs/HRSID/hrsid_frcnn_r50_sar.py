@@ -64,7 +64,7 @@ model = dict(
             in_channels=256,
             fc_out_channels=1024,
             roi_feat_size=7,
-            num_classes=80,
+            num_classes=num_class,
             bbox_coder=dict(
                 type='DeltaXYWHBBoxCoder',
                 target_means=[0., 0., 0., 0.],
@@ -137,5 +137,5 @@ optim_wrapper = dict(
     type='OptimWrapper')
 
 train_dataloader = dict(
-    batch_size=16,
-    num_workers=4,)
+    batch_size=8,
+    num_workers=2,)
