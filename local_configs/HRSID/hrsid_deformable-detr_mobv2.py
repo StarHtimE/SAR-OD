@@ -20,5 +20,5 @@ model = dict(
 )
 
 train_dataloader = dict(
-    batch_size=16,
+    batch_size=8,
     num_workers=4,)
