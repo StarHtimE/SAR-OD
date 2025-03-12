@@ -13,13 +13,13 @@ model = dict(
             dims=[96, 192, 384, 768], 
             drop_path_rate=0.2,
             layer_scale_init_value=1e-6,
-            out_indices=[1, 2, 3]
+            out_indices=[0, 1, 2, 3]
         ),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/siton-gpfs-archive/yuxuanli/mmpretrain/work_dirs/convnext_b_sar/epoch_100.pth'),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='E:\Ziheng_projects\SAR-OD\checkpoints\convnext_t_sar\epoch_100.pth'),
     ),
     neck=dict(
         type='ChannelMapper',
-        in_channels=[192, 384, 768],
+        in_channels=[96, 192, 384, 768],
         kernel_size=1,
         out_channels=256,
         act_cfg=None,
@@ -28,5 +28,5 @@ model = dict(
 )
 
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=4,
     num_workers=4,)
