@@ -1,5 +1,6 @@
 from mmcv.utils import Registry, build_from_cfg
 from torch import nn
+import warnings
 
 DISCRIMINATOR = Registry('discriminator')
 DISTILLER = Registry('distiller')
@@ -31,8 +32,6 @@ def build(cfg, registry, default_args=None):
 def build_distill_loss(cfg):
     """Build distill loss."""
     return build(cfg, DISTILL_LOSSES)
-
-
 
 def build_distiller(cfg,teacher_cfg=None,student_cfg=None, train_cfg=None, test_cfg=None):
     """Build distiller."""

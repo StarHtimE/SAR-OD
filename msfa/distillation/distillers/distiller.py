@@ -2,12 +2,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 from mmdet.models.detectors.base import BaseDetector
-from mmdet.models import build_detector
-from mmcv.runner import  load_checkpoint, _load_checkpoint, load_state_dict
+from ...models import build_detector
+from mmengine.runner import load_checkpoint, load_state_dict
 from ..builder import DISTILLER,build_distill_loss
 from collections import OrderedDict
-from mmdet.models.builder import build_cl_head
-
+from ...models.builder import build_cl_head
 
 
 @DISTILLER.register_module()
@@ -44,7 +43,7 @@ class Distiller(BaseDetector):
                                         train_cfg=student_cfg.get('train_cfg'),
                                         test_cfg=student_cfg.get('test_cfg'))
         if init_student:
-            t_checkpoint = _load_checkpoint(teacher_pretrained)
+            t_checkpoint = load_checkpoint(teacher_pretrained)
             all_name = []
             for name, v in t_checkpoint["state_dict"].items():
                 if name.startswith("backbone."):
@@ -148,7 +147,7 @@ class Distiller(BaseDetector):
         with torch.no_grad():
             self.teacher.eval()
             batch_input_shape = tuple(img[0].size()[-2:])
-            for img_meta in img_metas:
+            for img_meta in img:
                 img_meta['batch_input_shape'] = batch_input_shape
  
             feat = self.teacher.extract_feat(img)
@@ -174,7 +173,7 @@ class Distiller(BaseDetector):
                 
                 student_loss[loss_name] = self.distill_losses[loss_name](student_feat,teacher_feat,kwargs['gt_bboxes'], img_metas)
         """
-        
+        student_loss = {}
         return student_loss
 
 
