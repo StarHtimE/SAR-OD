@@ -1,4 +1,4 @@
-_base_ = 'E:\Ziheng_projects\SAR-OD\local_configs\HRSID\hrsid_deformable-detr_r50_sar.py'
+_base_ = 'hrsid_deformable-detr_r50_sar.py'
 
 model = dict(
     backbone=dict(
@@ -18,3 +18,7 @@ model = dict(
         norm_cfg=dict(type='GN', num_groups=32),
         num_outs=4),
 )
+
+train_dataloader = dict(
+    batch_size=8,
+    num_workers=4,)

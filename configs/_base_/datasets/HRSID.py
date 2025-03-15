@@ -3,8 +3,20 @@ custom_imports = dict(
     imports=['msfa.datasets.SAR_objectness'],  
     allow_failed_imports=False)
 dataset_type = 'SAR_Objectness_Dataset' 
-data_root = '/root/autodl-tmp/data/HRSID/'
 
+data_root = 'D:/DataSets/HRSID/'
+# possible_paths = [
+#         '/root/autodl-tmp/data/HRSID/',  # AutoDL path
+#         'D:/DataSets/HRSID/',            # Windows desktop path
+#         'D:/src/data/HRSID/',            # Windows laptop path
+#     ]
+
+# for path in possible_paths:
+#     if os.path.exists(path):
+#         print(f"Using data path: {path}")
+#         data_root = path
+#         break
+    
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
 # automatically infer from prefix (not support LMDB and Memcache yet)
@@ -19,7 +31,7 @@ data_root = '/root/autodl-tmp/data/HRSID/'
 #         'data/': 's3://openmmlab/datasets/detection/'
 #     }))
 
-batch_size = 1
+batch_size = 4
 num_workers = 4
 backend_args = None
 
@@ -79,7 +91,7 @@ val_evaluator = dict(
 
 
 test_dataloader = dict(
-    batch_size=batch_size,
+    batch_size=1,
     num_workers=num_workers,
     persistent_workers=True,
     drop_last=False,
