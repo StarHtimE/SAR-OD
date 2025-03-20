@@ -23,7 +23,7 @@ model = dict(
             style='pytorch',
             init_cfg=None
         ),
-        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='D:/src/checkpoints/backbones/r50_sar_epoch_100.pth'),
+        init_cfg=dict(type='Pretrained', prefix='backbone', checkpoint='/root/autodl-tmp/ckpt/backbone/r50_sar_epoch_100.pth'),
     ),
     
     bbox_head=dict(
@@ -41,5 +41,5 @@ optim_wrapper = dict(
     type='OptimWrapper')
 
 train_dataloader = dict(
-    batch_size=4,
+    batch_size=16,
     num_workers=4,)
