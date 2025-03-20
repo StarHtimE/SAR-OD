@@ -1,4 +1,5 @@
-from mmcv.utils import Registry, build_from_cfg
+from mmengine import build_from_cfg
+from mmengine.registry import Registry
 from torch import nn
 import warnings
 

@@ -1,10 +1,9 @@
 # Copyright (c) OpenMMLab. All rights reserved.
+from mmengine.registry import Registry
 import warnings
+from mmdet.registry import MODELS as MMDET_MODELS
 
-from mmcv.cnn import MODELS as MMCV_MODELS
-from mmcv.utils import Registry
-
-MODELS = Registry('models', parent=MMCV_MODELS)
+MODELS = Registry('models', parent=MMDET_MODELS)
 
 BACKBONES = MODELS
 NECKS = MODELS
