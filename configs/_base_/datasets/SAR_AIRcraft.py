@@ -3,7 +3,7 @@ custom_imports = dict(
     imports=['msfa.datasets.SAR_AIRcraft'],  
     allow_failed_imports=False)
 dataset_type = 'SAR_AIRcraft_Dataset' 
-data_root = 'D:/src/SAR-OD/data/SAR-AIRcraft-1.0/'
+data_root = '/root/autodl-tmp/data/SAR-AIRcraft-1.0/'
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
@@ -69,7 +69,7 @@ test_dataloader = val_dataloader
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/test.json',
+    ann_file=data_root + 'annotations/val.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
