@@ -1,5 +1,5 @@
 _base_ = [
-    '../../configs/_base_/models/retinanet_r50_fpn.py', 
+    '../../configs/_base_/models/faster-rcnn_r50_fpn.py', 
     '../../configs/_base_/datasets/SAR_AIRcraft.py',
     '../../configs/_base_/schedules/schedule_1x.py', '../../configs/_base_/default_runtime.py'
 ]# model settings
@@ -17,8 +17,7 @@ model = dict(
         norm_eval=True,
         style='pytorch',
         init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
-    bbox_head=dict(
-        num_classes=num_classes,)
+    roi_head=dict(bbox_head=dict(num_classes=num_classes))
 )
 # optimizer
 

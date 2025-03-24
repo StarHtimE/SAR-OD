@@ -3,7 +3,7 @@ custom_imports = dict(
     imports=['msfa.datasets.SAR_AIRcraft'],  
     allow_failed_imports=False)
 dataset_type = 'SAR_AIRcraft_Dataset' 
-data_root = '/root/autodl-tmp/data/SAR-AIRcraft-1.0/'
+data_root = 'D:/data/SAR-AIRcraft-1.0/'
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
