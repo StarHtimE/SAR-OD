@@ -1,13 +1,13 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from ..builder import DETECTORS
-from mmdet.models.detectors.detr import DETR
+from .deformable_detr import DeformableDETR
 
 
 @DETECTORS.register_module()
-class DistillDeformableDETR(DETR):
+class DistillDeformableDETR(DeformableDETR):
 
     def __init__(self, *args, **kwargs):
-        super(DETR, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def forward_train_distill(self,
                       img,
@@ -41,8 +41,11 @@ class DistillDeformableDETR(DETR):
             img_meta['batch_input_shape'] = batch_input_shape
     
         x = self.extract_feat(img)
-        losses, all_stage_det_querys, pos_assigned_gt_inds_list_distill = self.bbox_head.forward_train_distill(x, img_metas, gt_bboxes,
-                                              gt_labels, gt_bboxes_ignore, 
-                                              teacher_bboxes, teacher_labels, \
-                                              is_layer_by_layer_distill=is_layer_by_layer_distill)
+        losses, all_stage_det_querys, pos_assigned_gt_inds_list_distill \
+            = self.bbox_head.forward_train_distill(
+                x, img_metas, gt_bboxes,
+                gt_labels, gt_bboxes_ignore, 
+                teacher_bboxes, teacher_labels,
+                is_layer_by_layer_distill=is_layer_by_layer_distill)
+        
         return losses, all_stage_det_querys, pos_assigned_gt_inds_list_distill, x

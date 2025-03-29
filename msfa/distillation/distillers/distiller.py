@@ -173,8 +173,7 @@ class Distiller(BaseDetector):
                 
                 student_loss[loss_name] = self.distill_losses[loss_name](student_feat,teacher_feat,kwargs['gt_bboxes'], img_metas)
         """
-        student_loss = {}
-        return student_loss
+        pass
 
 
     def forward_train(self, img, img_metas, **kwargs):
